@@ -29,8 +29,6 @@ def calculate_codon_frequency(sequence):
         raise ValueError("La secuencia proporcionada está vacía.")
     
     sequence = sequence.upper()
-    if any(c not in 'ACGT' for c in sequence):
-        raise ValueError("La secuencia contiene caracteres no válidos.")
     
     codons = [sequence[i:i+3] for i in range(0, len(sequence), 3)]
     
