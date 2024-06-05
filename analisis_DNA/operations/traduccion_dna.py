@@ -14,9 +14,6 @@ Ejemplo de uso:
 
 '''
 
-from Bio import SeqIO
-from Bio.Seq import Seq
-
 def translate_sequence(frame, secuencia):
     '''
     Traduce a aminocidos una secuencia de ADN.
