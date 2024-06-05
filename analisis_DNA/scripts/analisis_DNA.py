@@ -32,4 +32,4 @@ parser.add_argument("-e", "--Enzima_restriccion",
 args = parser.parse_args()
 
 if __name__ == "__main__":
-    print("Te amo Jenni")
+    print("Te amo Jenni.")
