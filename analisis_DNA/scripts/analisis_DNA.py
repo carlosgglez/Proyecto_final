@@ -1,7 +1,15 @@
 from Bio import SeqIO
 from Bio.Seq import Seq
 import sys 
-sys.path.append("")
+sys.path.append("/Users/frida_galan/Desktop/PythonSEM2/Proyecto_final/analisis_DNA/operations")
+sys.path.append("/Users/frida_galan/Desktop/PythonSEM2/Proyecto_final/analisis_DNA/utils")
+from file_io import read_dna_sequence
+from validators import validate_dna_sequence
+from validators import validate_fasta_format
+from calcular_contenido_nucleotidos import calculate_nucleotide_content
+from calcular_frecuencia_codones import calculate_codon_frequency
+from enz_restriccion import find_restriction_sites
+from traduccion_dna import translate_sequence
 import argparse
 
 parser=argparse.ArgumentParser(description="El siguiente script sirve para analizar una secuencia de DNA, incluye distintas funcionalidades.")
@@ -33,3 +41,30 @@ args = parser.parse_args()
 
 if __name__ == "__main__":
     print("Te amo Jenni.")
+
+    #Abrimos archivo y realizamos validaciones de formato
+    secuencia = read_dna_sequence(args.Input_file)
+    val_fasta = validate_fasta_format(args.Input_file)
+    validacion_secuencia = validate_dna_sequence(secuencia)
+    if (validacion_secuencia):
+
+        #Calculamos la frecuencia de nucleótidos 
+        calculate_nucleotide_content(secuencia, args.Nucleotidos)
+
+        #Calculamos la frecuencia de codones 
+        frec_codons = calculate_codon_frequency(secuencia)
+        print(f"La frecuencia de cada codón es: {frec_codons}")
+
+        #Encontrar sitios de restricción para una enzima dada
+        sitios = find_restriction_sites(secuencia, args.Enzima_restriccion)
+        print(f"Los sitios de restricción encontrados para la enzima {args.Enzima_restriccion} son:\n {sitios}")
+
+        #Traducción de la secuencia de DNA dada por el usuario 
+        translate_sequence(args.Marco_lectura, secuencia)
+
+
+
+
+
+
+
