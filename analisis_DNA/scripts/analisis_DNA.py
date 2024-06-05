@@ -41,7 +41,7 @@ parser.add_argument("-m", "--Marco_lectura",
 
 args = parser.parse_args()
 
-if __name__ == "__main__":
+if _name_ == "_main_":
     print("Te amamos Jenni Rivera, por ti le echamos ganas a la Uni")
  
     # Abrimos archivo y realizamos validaciones de formato
