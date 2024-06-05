@@ -60,3 +60,21 @@ if __name__ == "__main__":
         print("Secuencia escrita correctamente en 'output_dna.txt'.")
     except Exception as e:
         print(f"Error: {str(e)}")
+
+def ignore_head_FASTA(file_path):
+    '''
+    Lee una secuencia de ADN de un archivo FASTA ignorando la cabecera.
+
+    Args:
+        file_path (str): La ruta al archivo FASTA.
+
+    Returns:
+        str: La secuencia de ADN.
+    '''
+    sequence = []
+    with open(file_path, 'r') as file:
+        for line in file:
+            if line.startswith('>'):
+                continue
+            sequence.append(line.strip())
+    return ''.join(sequence)
