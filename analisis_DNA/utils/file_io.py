@@ -10,21 +10,8 @@ Funciones:
     
 Ejemplos de uso están disponibles en el bloque principal del módulo.
 
-Autores: [Tu Nombre]
-Versión: 1.0
 """
 
-# imports
-
-# meta-info
-__author__ = "Carlos Garcia Gonzalez"
-__version__ = "1.0"
-
-# global vars
-
-# functions internal
-
-# main functions
 
 def read_dna_sequence(filename):
     """
