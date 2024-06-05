@@ -14,23 +14,6 @@ Funciones:
 Los errores de validación levantan excepciones para permitir una gestión de errores adecuada en las funciones de llamada.
 """
 
-def validate_dna_sequence(sequence):
-    """
-    Valida que la secuencia de ADN contenga solo caracteres válidos (A, C, G, T).
-
-    Args:
-        sequence (str): La secuencia de ADN a validar.
-
-    Returns:
-        bool: True si la secuencia es válida, False de lo contrario.
-
-    Raises:
-        ValueError: Si la secuencia contiene caracteres inválidos.
-    """
-    valid_chars = {'A', 'C', 'G', 'T'}
-    if not set(sequence.upper()).issubset(valid_chars):
-        raise ValueError("La secuencia de ADN contiene caracteres no válidos.")
-    return True
 
 def validate_fasta_format(file_path):
     """

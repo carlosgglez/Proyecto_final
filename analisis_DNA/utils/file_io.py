@@ -44,8 +44,6 @@ def read_dna_sequence(filename):
         sequence = file.read().strip().upper()
     if not sequence:
         raise ValueError("El archivo está vacío.")
-    if any(char not in 'ACGT' for char in sequence):
-        raise ValueError("La secuencia contiene caracteres no válidos.")
     return sequence
 
 def write_dna_sequence(filename, sequence):
