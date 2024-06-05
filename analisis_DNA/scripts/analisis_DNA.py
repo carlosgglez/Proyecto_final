@@ -15,6 +15,7 @@ from validators import validate_fasta_format
 from calcular_contenido_nucleotidos import calculate_nucleotide_content
 from calcular_frecuencia_codones import calculate_codon_frequency
 from traduccion_dna import translate_sequence
+from transcrito_dna import transcribe_sequence
 
 '''Se parsean los argumentos usando la libreria de argparse'''
 parser = argparse.ArgumentParser(
@@ -56,5 +57,10 @@ if __name__ == "__main__":
         frec_codons = calculate_codon_frequency(secuencia)
         print(f"La frecuencia de cada codón es: {frec_codons}")
 
+        #Transcripción de la secuencia de DNA dada por el usuario 
+        transcribe_sequence(args.Marco_lectura,ruta_archivo)
+
         # Traducción de la secuencia de DNA dada por el usuario 
         translate_sequence(args.Marco_lectura, ruta_archivo)
+
+
