@@ -11,6 +11,7 @@ sys.path.append("/Users/frida_galan/Desktop/PythonSEM2/Proyecto_final/analisis_D
 sys.path.append("/Users/frida_galan/Desktop/PythonSEM2/Proyecto_final/analisis_DNA/utils")
 # Aplicaciones locales del paquete
 from file_io import read_dna_sequence
+from file_io import ignore_head_FASTA
 from validators import validate_fasta_format
 from calcular_contenido_nucleotidos import calculate_nucleotide_content
 from calcular_frecuencia_codones import calculate_codon_frequency
@@ -41,14 +42,17 @@ parser.add_argument("-m", "--Marco_lectura",
 args = parser.parse_args()
 
 if __name__ == "__main__":
-    print("Te amamos Jenni Rivera, por ti le echamos ganas")
+    print("Te amamos Jenni Rivera, por ti le echamos ganas a la Uni")
  
     # Abrimos archivo y realizamos validaciones de formato
     ruta_archivo = args.Input_file
-    secuencia = read_dna_sequence(ruta_archivo)
     val_fasta = validate_fasta_format(ruta_archivo)
 
     if val_fasta:
+
+        fasta_sin_cabeza = ignore_head_FASTA(ruta_archivo)
+        secuencia = read_dna_sequence(fasta_sin_cabeza)
+
         # Calculamos la cantidad de nucleótidos 
         calculate_nucleotide_content(secuencia, args.Nucleotidos)
 
