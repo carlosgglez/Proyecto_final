@@ -14,10 +14,17 @@ Ejemplo de uso:
 
 '''
 
-from Bio import SeqIO
-from Bio.Seq import Seq
-
 def translate_sequence(frame, secuencia):
+    '''
+    Traduce a aminocidos una secuencia de ADN.
+
+    Args:
+        frame (int): El marco de lectura FORWARD a trabajar.
+        secuencia (str): La secuencia de ADN a analizar.
+
+    Returns:
+        str: La secuencia de DNA traducida a aminoacidos
+    '''
     for record in SeqIO.parse(secuencia, "fasta"):
         # Obtener la secuencia de ADN del registro y ajustarla al marco de lectura especificado
         sequence = record.seq[frame:]
