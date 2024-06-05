@@ -1,6 +1,8 @@
 from Bio import SeqIO
 from Bio.Seq import Seq
-import sys 
+import sys
+import argparse
+
 sys.path.append("/Users/frida_galan/Desktop/PythonSEM2/Proyecto_final/analisis_DNA/operations")
 sys.path.append("/Users/frida_galan/Desktop/PythonSEM2/Proyecto_final/analisis_DNA/utils")
 from file_io import read_dna_sequence
@@ -9,7 +11,6 @@ from calcular_contenido_nucleotidos import calculate_nucleotide_content
 from calcular_frecuencia_codones import calculate_codon_frequency
 from traduccion_dna import translate_sequence
 
-import argparse
 
 parser = argparse.ArgumentParser(description="El siguiente script sirve para analizar una secuencia de DNA, incluye distintas funcionalidades.")
 
