@@ -1,18 +1,24 @@
-from Bio import SeqIO
-from Bio.Seq import Seq
+# Librerias estadar importadas para la función del programa
 import sys
 import argparse
 
+# Importaciones especificas de la libreria Biopython
+from Bio import SeqIO
+from Bio.Seq import Seq
+
+# Se ajustan las rutas segun el entorno virtual de Python
 sys.path.append("/Users/frida_galan/Desktop/PythonSEM2/Proyecto_final/analisis_DNA/operations")
 sys.path.append("/Users/frida_galan/Desktop/PythonSEM2/Proyecto_final/analisis_DNA/utils")
+# Aplicaciones locales del paquete
 from file_io import read_dna_sequence
 from validators import validate_fasta_format
 from calcular_contenido_nucleotidos import calculate_nucleotide_content
 from calcular_frecuencia_codones import calculate_codon_frequency
 from traduccion_dna import translate_sequence
 
-
-parser = argparse.ArgumentParser(description="El siguiente script sirve para analizar una secuencia de DNA, incluye distintas funcionalidades.")
+'''Se parsean los argumentos usando la libreria de argparse'''
+parser = argparse.ArgumentParser(
+    description="El siguiente script sirve para analizar una secuencia de DNA, incluye distintas funcionalidades")
 
 parser.add_argument("Input_file",
                     help="El nombre o la ruta al archivo FASTA que se quiera procesar",
@@ -35,7 +41,7 @@ parser.add_argument("-m", "--Marco_lectura",
 args = parser.parse_args()
 
 if __name__ == "__main__":
-    print("Te amo Jenni.")
+    print("Te amamos Jenni Rivera, por ti le echamos ganas")
  
     # Abrimos archivo y realizamos validaciones de formato
     ruta_archivo = args.Input_file
@@ -43,7 +49,7 @@ if __name__ == "__main__":
     val_fasta = validate_fasta_format(ruta_archivo)
 
     if val_fasta:
-        # Calculamos la frecuencia de nucleótidos 
+        # Calculamos la cantidad de nucleótidos 
         calculate_nucleotide_content(secuencia, args.Nucleotidos)
 
         # Calculamos la frecuencia de codones 
