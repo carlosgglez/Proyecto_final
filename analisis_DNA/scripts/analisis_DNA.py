@@ -82,9 +82,11 @@ if __name__ == "__main__":
         print(f"La frecuencia de cada codón es: {frec_codons}")
 
         #Transcripción de la secuencia de DNA dada por el usuario 
+        print(f"La transcripción de la secuencia de DNA del archivo {ruta_archivo} es la siguiente: \n")
         transcribe_sequence(args.Marco_lectura,ruta_archivo)
 
-        # Traducción de la secuencia de DNA dada por el usuario 
+        # Traducción de la secuencia de DNA dada por el usuario
+        print(f"La traducción de la secuencia de DNA del archivo {ruta_archivo} es la siguiente: \n") 
         translate_sequence(args.Marco_lectura, ruta_archivo)
 
 
