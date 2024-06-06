@@ -1,4 +1,4 @@
-# Analisis_DNA
+# Calcular el conteo de nucleótidos 
 
 Este documento describe los casos de prueba para un modulo de Python, que
 realiza la función de contar la cantidad de veces que aparece un nucleotido en una secuencia de DNA.
