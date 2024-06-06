@@ -1,3 +1,25 @@
+'''
+Nombre:
+    Análisis_DNA 
+
+Version:
+    3.12.2
+
+Autor:
+    Garcia Gonzalez Carlos 
+    Frida Galán Hernández 
+
+Descripcion:
+    Este programa hecho en Python tienen la funcionalidad de calcular la frecuencia de nucleótidos, 
+    la frecuencia de codones, además de que transcribe una secuencia de DNA a RNA y la traduce a una cadena de aminoácidos
+Argumentos:
+    - nombre archivo (path)
+    - n (T,A,G,C) para establecer el nucleótido de interesa 
+    - m (0,1,2) para establecer el marco de lectura, solo forward 
+Usage:
+    python scripts/analisis_DNA.py PATH DE LA ARCHIVO CON LA SECUENCIA -n NUCLEÓTIDO -m MARCO DE LECTURA
+    python3 scripts/analisis_DNA.py /Users/frida_galan/Desktop/PythonSEM2/Notas_Biopython/seq.nt.fa -n T -m 0 
+'''
 # Librerias estadar importadas para la función del programa
 import sys
 import argparse
@@ -16,6 +38,7 @@ from calcular_contenido_nucleotidos import calculate_nucleotide_content
 from calcular_frecuencia_codones import calculate_codon_frequency
 from traduccion_dna import translate_sequence
 from transcrito_dna import transcribe_sequence
+from file_io import ignore_head_FASTA
 
 '''Se parsean los argumentos usando la libreria de argparse'''
 parser = argparse.ArgumentParser(
@@ -46,8 +69,9 @@ if __name__ == "__main__":
  
     # Abrimos archivo y realizamos validaciones de formato
     ruta_archivo = args.Input_file
-    secuencia = read_dna_sequence(ruta_archivo)
+    path_seq= read_dna_sequence(ruta_archivo)
     val_fasta = validate_fasta_format(ruta_archivo)
+    secuencia = ignore_head_FASTA(ruta_archivo)
 
     if val_fasta:
         # Calculamos la cantidad de nucleótidos 
@@ -62,5 +86,6 @@ if __name__ == "__main__":
 
         # Traducción de la secuencia de DNA dada por el usuario 
         translate_sequence(args.Marco_lectura, ruta_archivo)
+
 
 
