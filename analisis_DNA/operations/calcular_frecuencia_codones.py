@@ -39,6 +39,6 @@ def calculate_codon_frequency(sequence):
     for codon in codons:
         codon_counts[codon] = codon_counts.get(codon, 0) + 1
     
-    codon_frequencies = {codon: count / total_codons * 100 for codon, count in codon_counts.items()}
+    codon_frequencies = {codon: round(count / total_codons * 100, 3) for codon, count in codon_counts.items()}
     
     return codon_frequencies
