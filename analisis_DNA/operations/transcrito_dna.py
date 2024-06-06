@@ -16,6 +16,16 @@ Ejemplo de uso:
 from Bio import SeqIO
 
 def transcribe_sequence(frame, secuencia):
+    '''
+    Transcribe a RNA una secuencia de DNA.
+
+    Args:
+        frame (int): El marco de lectura FORWARD a trabajar.
+        secuencia (str): La secuencia de ADN a analizar.
+
+    Returns:
+        str: La secuencia de DNA transcrita a RNA
+    '''
     for record in SeqIO.parse(secuencia, "fasta"):
         # Obtener la secuencia de ADN del registro y ajustarla al marco de lectura especificado
         sequence = record.seq[frame:]
