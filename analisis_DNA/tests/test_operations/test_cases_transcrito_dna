@@ -1,0 +1,52 @@
+# Transcripción de la secuencia de DNA
+
+Este documento describe los casos de prueba para un modulo de Python, que
+realiza la función de transcribir una secuencia de DNA.
+
+## Caso de prueba 1: Transcripción de secuencia en el marco de lectura 0
+
+python transcrip_sequence(0, "secuencia.fasta")
+    **Contenido de la secuencia:**
+    >seq1
+    ATGGCCATTGTAATGGGCCGCTGAAAGGGTGCCCGATAG
+    **Resultado esperado:**
+    >seq1_frame1
+    AUAUGGCCAUGUAAUGGGCCGCUGAAAGGGUGCCCGAUAG
+
+## Caso de prueba 2: Transcripción de secuencia en el marco de lectura 1
+
+python transcrip_sequence(1, "secuencia.fasta")
+    **Contenido de la secuencia:**
+    >seq1
+    ATGGCCATTGTAATGGGCCGCTGAAAGGGTGCCCGATAG
+    **Resultado esperado:**
+    >seq1_frame2
+    AUAUGGCCAUGUAAUGGGCCGCUGAAAGGGUGCCCGAUAG
+
+## Caso de prueba 3: Transcripción de secuencia en el marco de lectura 2
+
+python transcrip_sequence(2, "secuencia.fasta")
+    **Contenido de la secuencia:**
+    >seq1
+    ATGGCCATTGTAATGGGCCGCTGAAAGGGTGCCCGATAG
+    **Resultado esperado:**
+    >seq1_frame3
+    AUAUGGCCAUGUAAUGGGCCGCUGAAAGGGUGCCCGAUAG
+
+## Caso de prueba 4: Secuencia vacía
+
+python transcrip_sequence(0, "empty.fasta")
+    **Contenido de empty**
+    >empty
+    **Resultado esperado:**
+    (no output)
+
+## Caso de prueba 5: Archivo no encontrado
+
+python transcrip_sequence(0, "non_existent_file.fasta")
+    **Resultado esperado:**
+    Debería imprimir un mensaje de error indicando que no se pudo encontrar el archivo. Este caso necesita manejar excepciones en el código, por ejemplo:
+    try:
+        transcrip_sequence(0, "non_existent_file.fasta")
+    except FileNotFoundError:
+        print("Error: El archivo especificado no se encuentra.")
